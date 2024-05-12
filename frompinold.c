@@ -16,22 +16,6 @@
 #include <error.h>
 #include <pthread.h>
 
-#define MAX_ADC_CH 8
-int selectedChannels[MAX_ADC_CH];
-int channels[MAX_ADC_CH];
-char spidev_path[] = "/dev/spidev0.0";
-const char codeVersion[5] = "0.0.1";
-const int blocksDefault = 1;
-const int blocksMax = 511;
-const int channelDefault = 0;
-const int samplesDefault = 1000;
-const int freqDefault = 0;
-const int clockRateDefault = 3600000;
-const int clockRateMin = 1000000;
-const int clockRateMax = 3600000;
-const int coldSamples = 10000;
-
-
 
 pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t convar = PTHREAD_COND_INITIALIZER;
@@ -190,8 +174,6 @@ void *led_thread(void *vargp)
     goto cleanup;
   }
   sleep(1);
-  //i++;
-//}
 cleanup:
   gpiod_line_release_bulk(&lines);
   gpiod_chip_close(chip);
