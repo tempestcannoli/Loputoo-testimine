@@ -460,7 +460,7 @@ void *led_thread(void *vargp)
     goto cleanup;
   }
 
-  // set pin 21 to 1 (logic high)
+  // pick pin that will be changed
   offsets[0] = 14;
   values[0] = 0;
 
@@ -529,8 +529,6 @@ int main (int argc, char *argv[]) {
     pthread_join(thread_id, NULL); 
     pthread_join(led, NULL); 
     printf("After Thread\n"); 
-   // printf("%ld\n", ns_led);
-    //printf("%ld\n", ns_sensor);
     long int delay;
     delay = ns_sensor - ns_led;
     printf("%ld\n", delay);
@@ -539,13 +537,9 @@ int main (int argc, char *argv[]) {
     perror("Error opening file.");
     }
     else {
-       // fprintf(pFile, "\n%ld\n", ns_led);
-        //fprintf(pFile, "%ld\n", ns_sensor);
         fprintf(pFile, "%ld\n", delay);
-        //printf("%ld\n", delay);
     }
    fclose(pFile);
-    //return 0;
     i++;
    ns_led = 0;
    ns_sensor = 0;
