@@ -1,8 +1,3 @@
-/*
-mcp3008hwspi: fast MCP3008 reader for Raspberry Pi
-License: https://github.com/nagimov/mcp3008hwspi/blob/master/LICENSE
-Readme: https://github.com/nagimov/mcp3008hwspi/blob/master/README.md
-*/
 
 #include <stdio.h>
 #include <stdlib.h>
