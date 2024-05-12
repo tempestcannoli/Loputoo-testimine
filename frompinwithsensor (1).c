@@ -1,8 +1,3 @@
-/*
-mcp3008hwspi: fast MCP3008 reader for Raspberry Pi
-License: https://github.com/nagimov/mcp3008hwspi/blob/master/LICENSE
-Readme: https://github.com/nagimov/mcp3008hwspi/blob/master/README.md
-*/
 
 #include <errno.h>
 #include <fcntl.h>
@@ -20,21 +15,6 @@ Readme: https://github.com/nagimov/mcp3008hwspi/blob/master/README.md
 #include <gpiod.h>
 #include <error.h>
 #include <pthread.h>
-
-#define MAX_ADC_CH 8
-int selectedChannels[MAX_ADC_CH];
-int channels[MAX_ADC_CH];
-char spidev_path[] = "/dev/spidev0.0";
-const char codeVersion[5] = "0.0.1";
-const int blocksDefault = 1;
-const int blocksMax = 511;
-const int channelDefault = 0;
-const int samplesDefault = 1000;
-const int freqDefault = 0;
-const int clockRateDefault = 3600000;
-const int clockRateMin = 1000000;
-const int clockRateMax = 3600000;
-const int coldSamples = 10000;
 
 
 
